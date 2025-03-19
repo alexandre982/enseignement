@@ -1,95 +1,89 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Utilisation de services tiers et des éléments AUDIO, VIDEO pour intégrer des sons et des vidéos"
+    />
+    <title>Intégrer des médias en HTML</title>
+    <link rel="stylesheet" href="css/common-v3.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Utilisation de services tiers et des éléments AUDIO, VIDEO pour intégrer des sons et des vidéos">
-	<title>Intégrer des médias en HTML</title>
-	<link rel="stylesheet" href="css/common-v3.css">
-	<link rel="stylesheet" href="css/theme.css">
-</head>
-
-<body>
-	<header class="header">
-		<h1>Décoration</h1>
-		<p>Découverte des propriétés CSS liées à la décoration: dégradés et ombres</p>
-	</header>
-	<main class="container">
-		<section>
-			<article  >
-				<h2>Transform-translate</h2>
-				<div class="box translate">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dolorum suscipit quasi dicta tempore quas, est praesentium a! Odio, ab.</div>
-			</article>
-			<article>
-	<h2>Transfom-scale</h2>
-	<div class="box scale">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dolorum suscipit quasi dicta tempore quas, est praesentium a! Odio, ab.
-</article  >
-<article>
-	<h2>Filter-sepia</h2>
-	<div  class="box sepia">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dolorum suscipit quasi dicta tempore quas, est praesentium a! Odio, ab.
-</article>
-<article>
-	<h2>transform-skew</h2>
-	<div  class="box skew ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dolorum suscipit quasi dicta tempore quas, est praesentium a! Odio, ab.
-</article>
-<article>
-	<h2>Transform-rotate</h2>
-	<div  class="box rotate">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dolorum suscipit quasi dicta tempore quas, est praesentium a! Odio, ab.
-</article>
-<article>
-	<h2>Transform-multiple</h2>
-	<div  class="box multiple ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dolorum suscipit quasi dicta tempore quas, est praesentium a! Odio, ab.
-</article>
-<article>
-	<h2>ombre</h2>
-	<div  class=" ombre ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dolorum suscipit quasi dicta tempore quas, est praesentium a! Odio, ab.
-</article>
-<article>
-	<h2></h2>
-	<div  class="box om ">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio dolorum suscipit quasi dicta tempore quas, est praesentium a! Odio, ab.
-</article>
-		</section>
-
-		<table class="blueTable">
-<thead>
-<tr>
-<th>head1</th>
-<th>head2</th>
-<th>head3</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td colspan="3">
-<div class="links"><a href="#">&laquo;</a> <a class="active" href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">&raquo;</a></div>
-</td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td>cell1_1</td>
-<td>cell2_1</td>
-<td>cell3_1</td>
-</tr>
-<tr>
-<td>cell1_2</td>
-<td>cell2_2</td>
-<td>cell3_2</td>
-</tr>
-<tr>
-<td>cell1_3</td>
-<td>cell2_3</td>
-<td>cell3_3</td>
-</tr>
-</tbody>
-</table>
+  <body>
+    <header class="header">
+      <h1>La cascade</h1>
+      <p>
+        Comprendre les différents facteurs de la cascade: l'ordre dans la
+        source, la spécificité et l'importance
+      </p>
+    </header>
+    <main class="container">
+      <section>
 		
-	</main>
-	<footer class="footer">
-		<p><a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/"><img alt="Propriété de la 3W Academy" src="https://3wa.fr/wp-content/themes/3wa2015/img/logos/big.png"></a></p>
-		<p>Ce matériel pédagogique est la propriété de la <a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/">3W Academy</a>. Cet exercice a été réalisé par <a href="https://www.cath2nos.com">Catherine Denos</a>.</p>
-	</footer>
-</body>
+        <h2>L'ordre dans la source</h2>
 
+        <article class="outer">
+          Un article ayant la classe <code>.outer</code>. Le texte de ce paragraphe est de
+          couleur verte, c'est le selecteur <code>.outer</code> p qui est appliqué.
+        </article>
+
+        <p class="inner outer">
+          Un paragraphe ayant la classe <code>.inner</code>. Le texte de ce paragraphe est de
+          couleur verte, c'est le selecteur  <code>.outer</code> p qui est appliqué car il est
+          écrit après le sélecteur article  <code>.inner</code> dans la source. Les deux
+          sélécteurs ayant la même spécificité (1 classe + 1 élément), c'est
+          l'ordre dans la source qui compte.
+        </p>
+		</div>
+      </section>
+      <section>
+        <h2>La spécificité</h2>
+
+        <article class="alice">
+          Un article ayant la classe <code>.alice.</code> Le texte de ce paragraphe est de
+          couleur bleue, c'est le selecteur <code>>.alice</code> p qui est appliqué car il
+          possède la plus grande spécificité (1 classe + 1 élément), supérieure
+          à <code>.alice</code (1 classe).
+        </article>
+
+        <p class="bob">
+          Un paragraphe ayant la classe <code>.bob</code>. Le texte de ce paragraphe est de
+          couleur rouge orangé, c'est le selecteur <code>.alice</code> .bob qui est appliqué
+          car il possède la plus grande spécificité (2 classes), supérieure à
+          p.bob (1 classe + 1 élément) et à <code>.bob </code>(1 classe).
+        </p>
+      </section>
+      <section>
+        <h2>L'importance</h2>
+
+        <article class="base">Un article ayant la classe .base</article>
+
+        <p class="important">
+          Un paragraphe ayant la classe <code>.important</code>. Le texte de ce paragraphe
+          est de couleur rouge, c'est la propriété color: red du selecteur
+          <code>.important</code> qui est appliqué car il y a la déclaration <code>!important</code>.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        <a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/"
+          ><img
+            alt="Propriété de la 3W Academy"
+            src="https://3wa.fr/wp-content/themes/3wa2015/img/logos/big.png"
+        /></a>
+      </p>
+      <p>
+        Ce matériel pédagogique est la propriété de la
+        <a rel="license" href="https://3wa.fr/propriete-materiel-pedagogique/"
+          >3W Academy</a
+        >. Cet exercice a été réalisé par
+        <a href="https://www.cath2nos.com">Catherine Denos</a>.
+      </p>
+    </footer>
+  </body>
 </html>
